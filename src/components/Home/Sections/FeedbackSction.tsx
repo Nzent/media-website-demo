@@ -80,14 +80,14 @@ function FeedbackSction() {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <div className="">
+    <div className="scroll-m-32" id="feedbacks">
       {/* headiing */}
       <div className="flex flex-col items-center justify-center">
         <div className="text-heading font-bold self-start w-full text-center">
-          Services
+          Feedbacks
         </div>
         <div className="self-start h-full text-subheading w-full text-center mb-8">
-          We offer a wide range of media services to help our clients
+          What clients say about us
         </div>
         {/* feedbacks cards */}
         <div className="w-full">

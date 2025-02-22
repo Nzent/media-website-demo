@@ -1,9 +1,12 @@
+"use client";
 import { IconArrowDownDashed } from "@tabler/icons-react";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 function IntroSection() {
   return (
-    <div className="relative">
+    <div className="relative" id="home">
+      {/* top cover image */}
       <div>
         <Image
           src={"/images/group3.jpg"}
@@ -16,10 +19,30 @@ function IntroSection() {
       </div>
       {/* top title */}
       <div className="absolute top-40 flex flex-col w-full justify-center items-center">
-        <div><Image src={"/svgs/ExcellenceW.svg"} width={400} height={100} alt="company logo"/></div>
-        <div className="text-subheading">Professional Media and Advertisement agency</div>
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <Image
+            src={"/svgs/ExcellenceW.svg"}
+            width={400}
+            height={100}
+            alt="company logo"
+          />
+        </motion.div>
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          viewport={{ once: true }}
+          className="text-subheading"
+        >
+          Professional Media and Advertisement agency
+        </motion.div>
       </div>
-      {/* scroll area */}
+      {/* scroll indicator */}
       <div className="absolute flex flex-col w-full justify-center items-center bottom-10">
         <div className="flex flex-col items-center text-subheading">
           <span className="text-slate-900 text-body font-semibold text-nowrap">
