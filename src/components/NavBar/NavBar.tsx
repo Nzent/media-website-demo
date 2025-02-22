@@ -12,7 +12,7 @@ function NavBar() {
     { name: "Home", link: "/" },
     { name: "About us", link: "/#about-us" },
     { name: "Services", link: "/#services" },
-    { name: "Testimonials", link: "/#testimonials" },
+    { name: "Feedbacks", link: "/#feedbacks" },
     { name: "Portfolio", link: "/#portfolio" },
     { name: "Blog", link: "/blog" },
     { name: "Careers", link: "/careers" },
