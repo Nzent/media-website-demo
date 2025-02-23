@@ -1,3 +1,5 @@
+![Screenshot 2025-02-23 185226](https://github.com/user-attachments/assets/135b26ac-b851-4d7e-89f1-1411c40724d9)
+
 # Excellence Media Company Demo
 
 This is a **Next.js 15** project built with modern web technologies, including **Tailwind CSS**, **Zod** for form validations, and **Framer Motion** for animations. The website features a **clean and minimal design**, **dark mode support**, and is fully responsive across **mobile, laptop, and PC**.
