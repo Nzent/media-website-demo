@@ -42,6 +42,7 @@ function LeftSection() {
             key={index}
             href={item.link}
             className="p-2 rounded-full flex justify-center items-center bg-slate-900 hover:bg-green-500 text-white aspect-square "
+            title="social media links"
           >
             {item.icon}
           </Link>
