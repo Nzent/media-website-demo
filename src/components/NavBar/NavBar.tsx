@@ -15,7 +15,7 @@ function NavBar() {
     { name: "Services", link: "/#services" },
     { name: "Feedbacks", link: "/#feedbacks" },
     { name: "Portfolio", link: "/#portfolio" },
-    { name: "Contact", link: "/#contact" },
+    { name: "Contact", link: "/contact-us" },
   ];
 
   const variants = {
@@ -39,12 +39,14 @@ function NavBar() {
           viewport={{ once: true }}
           className="flex items-center"
         >
-          <Image
-            src={"/svgs/ExcellenceW.svg"}
-            width={200}
-            height={50}
-            alt={"Company logo"}
-          />
+          <Link href="/" className="cursor-pointer">
+            <Image
+              src={"/svgs/ExcellenceW.svg"}
+              width={200}
+              height={50}
+              alt={"Company logo"}
+            />
+          </Link>
         </motion.div>
         {/* right */}
         <div className="flex items-center">

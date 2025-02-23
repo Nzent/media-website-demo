@@ -1,5 +1,5 @@
 "use client";
-import { usePrevNextButtons } from "@/components/Carousel/EmblaCarouselArrowButtons";
+import { usePrevNextButtons } from "@/components/Home/Carousel/EmblaCarouselArrowButtons";
 import {
   IconCircleChevronLeft,
   IconCircleChevronRight,

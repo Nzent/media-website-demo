@@ -17,7 +17,7 @@ function AboutUsSection() {
           autoPlay
           loop
           muted
-          className="w-full h-full rounded-md shadow-md"
+          className="w-full h-full rounded-md shadow-lg"
         />
       </motion.div>
       {/* right */}
