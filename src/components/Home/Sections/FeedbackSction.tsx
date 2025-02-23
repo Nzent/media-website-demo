@@ -109,7 +109,7 @@ function FeedbackSction() {
                       width={500}
                       height={500}
                       alt="avatar"
-                      className="object-cover rounded-full h-40 w-40"
+                      className="object-cover rounded-full h-40 w-40 aspect-square"
                     />
                   </div>
                   {/* feedback */}
