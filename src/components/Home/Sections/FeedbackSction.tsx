@@ -125,13 +125,13 @@ function FeedbackSction() {
             </div>
           </div>
           <div className="mt-4">
-            <button type="button" onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
+            <button type="button" title="prev button" onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
               <IconCircleChevronLeft
                 className={`${prevBtnDisabled && "opacity-50"} `}
                 size={30}
               />
             </button>
-            <button type="button" onClick={onNextButtonClick} disabled={nextBtnDisabled}>
+            <button type="button" title="next button" onClick={onNextButtonClick} disabled={nextBtnDisabled}>
               <IconCircleChevronRight
                 className={`${nextBtnDisabled && "opacity-50"} `}
                 size={30}
