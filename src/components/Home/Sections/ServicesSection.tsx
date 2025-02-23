@@ -103,9 +103,9 @@ function PortfolioSection() {
             key={index}
           >
             {/* Icon and name container */}
-            <div className="flex flex-col items-center justify-center h-full w-full p-4">
-              <div className="mb-4">{service.icon}</div>
-              <div className="text-xl font-semibold">{service.title}</div>
+            <div className="flex flex-col items-center justify-center group-hover:justify-start h-full w-full p-4 duration-500 transition-all">
+              <div className="">{service.icon}</div>
+              <div className="text-body font-semibold">{service.title}</div>
             </div>
             {/* Description section */}
             <div className="absolute inset-0 p-4 bg-green-500 translate-y-[calc(100%-3rem)] group-hover:translate-y-0 transition-transform duration-500 text-white">
