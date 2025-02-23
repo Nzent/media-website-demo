@@ -23,7 +23,7 @@ function ProjectsNumbersSections() {
   ];
 
   return (
-    <div className="grid grid-cols-4 max-md:grid-cols-1 max-lg:grid-cols-2 max-md:gap-y-4 gap-x-8 bg-white py-8 px-8 w-full ">
+    <div className="grid grid-cols-4 max-md:grid-cols-1  bg-white py-8 px-8 w-full ">
       {Numbers.map((item, index) => (
         <div
           key={index}
