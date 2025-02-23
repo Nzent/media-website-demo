@@ -89,7 +89,7 @@ function PortfolioSection() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center scroll-m-32 max-md:p-4">
+    <div className="flex flex-col items-center justify-center scroll-m-32 max-md:px-4">
       <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading  relative">
         Portfolios
         {/* 3 bubbles */}

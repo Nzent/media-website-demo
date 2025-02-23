@@ -8,22 +8,22 @@ import ServicesSection from "@/components/Home/Sections/ServicesSection";
 export default function Home() {
   return (
     <main className="flex flex-col overflow-x-hidden">
-      <section className="py-10 w-full" id="intro">
+      <section className="pb-20 w-full" id="intro">
         <IntroSection />
       </section>
-      <section className="py-10 w-full container mx-auto" id="about-us">
+      <section className="pb-20 w-full container mx-auto" id="about-us">
         <AboutUsSection />
       </section>
-      <section className="py-10 w-full container mx-auto" id="services">
+      <section className="pb-20 max-md:h-screen w-full container mx-auto" id="services">
         <ServicesSection />
       </section>
-      <section className="py-10 w-full mx-auto" id="projects">
+      <section className="pb-20 max-md:mt-96 w-full mx-auto" id="projects">
         <ProjectsNumbersSections />
       </section>
-      <section className="py-10 w-full container mx-auto" id="feedbacks">
+      <section className="mb-0 w-full container mx-auto" id="feedbacks">
         <FeedbackSction />
       </section>
-      <section className="py-10 w-full container mx-auto" id="portfolios">
+      <section className="pb-20 w-full container mx-auto" id="portfolios">
         <PortfolioSection />
       </section>
     </main>
