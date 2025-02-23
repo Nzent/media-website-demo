@@ -1,8 +1,9 @@
 "use client";
-import { motion } from "motion/react";
+import { IconMenuDeep, IconX } from "@tabler/icons-react";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function NavBar() {
   interface INavItem {
@@ -28,16 +29,40 @@ function NavBar() {
     }),
   };
 
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  // Function to handle outside clicks
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Check if the click is outside the menu
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setToggleMenu(false); // Close the menu if clicked outside
+      }
+    };
+
+    // Add event listener when the menu is open
+    if (toggleMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    // Clean up the event listener
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [toggleMenu]); // Re-run effect when `toggleMenu` changes
+  // Re-run effect when `toggleMenu` changes
+
   return (
     <nav className="bg-white/80  backdrop-blur-3xl py-4 h-fit fixed top-0 inset-0 z-50 ">
       <div className="flex justify-between  w-full container mx-auto">
         {/* left */}
         <motion.div
+          ref={menuRef}
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="flex items-center"
+          className="flex items-center basis-1/2"
         >
           <Link href="/" className="cursor-pointer">
             <Image
@@ -49,7 +74,7 @@ function NavBar() {
           </Link>
         </motion.div>
         {/* right */}
-        <div className="flex items-center">
+        <div className="items-center flex justify-end max-md:hidden max-lg:hidden basis-1/2">
           <motion.ul
             whileInView="visible"
             initial="initial"
@@ -68,7 +93,46 @@ function NavBar() {
             ))}
           </motion.ul>
         </div>
+        {/* right (mobile) */}
+        <div className="hidden max-md:flex max-lg:flex basis-1/2 justify-end w-full items-center px-2">
+          {/* menu icon */}
+          {!toggleMenu ? (
+            <IconMenuDeep
+              size={30}
+              onClick={() => setToggleMenu(!toggleMenu)}
+              className="cursor-pointer"
+            />
+          ) : (
+            <IconX
+              size={30}
+              onClick={() => setToggleMenu(!toggleMenu)}
+              className="cursor-pointer"
+            />
+          )}
+        </div>
       </div>
+      {/* moblie menu */}
+      <AnimatePresence>
+        {toggleMenu && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }} // Start with 0 height and opacity
+            animate={{ opacity: 1, height: "auto" }} // Animate to full height and opacity
+            exit={{ opacity: 0, height: 0 }} // Animate back to 0 height and opacity
+            className="flex flex-col justify-center w-full items-center mt-4 overflow-hidden"
+          >
+            {NavBarLinks.map((item, index) => (
+              <Link
+                href={item.link}
+                key={index}
+                className="text-body font-semibold py-2 hover:text-green-500 duration-500"
+                onClick={() => setToggleMenu(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
