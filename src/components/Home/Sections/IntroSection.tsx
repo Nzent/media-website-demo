@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function IntroSection() {
   return (
-    <div className="relative" id="home">
+    <div className="relative" id="intro">
       {/* top cover image */}
       <div>
         <Image

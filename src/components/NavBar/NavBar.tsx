@@ -4,20 +4,103 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 function NavBar() {
   interface INavItem {
     name: string;
     link: string;
+    sectionId: string;
   }
-  const NavBarLinks: INavItem[] = [
-    { name: "Home", link: "/" },
-    { name: "About us", link: "/#about-us" },
-    { name: "Services", link: "/#services" },
-    { name: "Feedbacks", link: "/#feedbacks" },
-    { name: "Portfolio", link: "/#portfolio" },
-    { name: "Contact", link: "/contact-us" },
-  ];
+
+  const NavBarLinks = React.useMemo<Array<INavItem>>(
+    () => [
+      { name: "Home", link: "/#intro", sectionId: "home" },
+      { name: "About us", link: "/#about-us", sectionId: "about-us" },
+      { name: "Services", link: "/#services", sectionId: "services" },
+      { name: "Feedbacks", link: "/#feedbacks", sectionId: "feedbacks" },
+      { name: "Portfolio", link: "/#portfolio", sectionId: "portfolio" },
+      { name: "Contact", link: "/contact-us", sectionId: "contact" },
+    ],
+    []
+  );
+
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Handle intersection observer for hash-based sections
+  useEffect(() => {
+    // Only set up observer if we're on the home page
+    if (pathname !== "/") {
+      return;
+    }
+
+    const options = {
+      threshold: 0.6,
+      rootMargin: "-80px 0px 0px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, options);
+
+    // Only observe sections with hash-based navigation
+    NavBarLinks.forEach((item) => {
+      if (item.link.startsWith("/#")) {
+        const element = document.getElementById(item.sectionId);
+        if (element) observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [NavBarLinks, pathname]);
+
+  // Handle active state for regular routes
+  useEffect(() => {
+    if (pathname !== "/") {
+      // Find matching route
+      const matchingLink = NavBarLinks.find(
+        (item) => !item.link.startsWith("/#") && item.link === pathname
+      );
+      if (matchingLink) {
+        setActiveSection(matchingLink.sectionId);
+      }
+    }
+  }, [pathname, NavBarLinks]);
+
+  // Handle scroll for navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Handle click outside menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setToggleMenu(false);
+      }
+    };
+
+    if (toggleMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [toggleMenu]);
 
   const variants = {
     initial: () => ({
@@ -29,52 +112,25 @@ function NavBar() {
     }),
   };
 
-  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  // Function to handle outside clicks
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      // Check if the click is outside the menu
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setToggleMenu(false); // Close the menu if clicked outside
-      }
-    };
-
-    // Add event listener when the menu is open
-    if (toggleMenu) {
-      document.addEventListener("mousedown", handleClickOutside);
+  // Helper function to determine if link should be active
+  const isLinkActive = (item: INavItem) => {
+    if (item.link.startsWith("/#")) {
+      // For hash-based navigation, use intersection observer result
+      return activeSection === item.sectionId && pathname === "/";
+    } else {
+      // For regular routes, use pathname matching
+      return pathname === item.link;
     }
+  };
 
-    // Clean up the event listener
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [toggleMenu]);
-  // scroll position cal
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
     <nav
       className={`${
-        isScrolled ? "bg-white/80 shadow-md" : "bg-transparent "
-      }   backdrop-blur-3xl py-4 h-fit fixed top-0 inset-0 z-50 transition-all duration-500`}
+        isScrolled ? "bg-white/80 shadow-md" : "bg-transparent"
+      } backdrop-blur-3xl py-4 h-fit fixed top-0 inset-0 z-50 transition-all duration-500`}
     >
-      <div className="flex justify-between  w-full container mx-auto">
-        {/* left */}
+      <div className="flex justify-between w-full container mx-auto">
+        {/* Logo */}
         <motion.div
           ref={menuRef}
           whileInView={{ opacity: 1 }}
@@ -85,14 +141,15 @@ function NavBar() {
         >
           <Link href="/" className="cursor-pointer">
             <Image
-              src={"/svgs/ExcellenceW.svg"}
+              src="/svgs/ExcellenceW.svg"
               width={200}
               height={50}
-              alt={"Company logo"}
+              alt="Company logo"
             />
           </Link>
         </motion.div>
-        {/* right */}
+
+        {/* Desktop Navigation */}
         <div className="items-center flex justify-end max-md:hidden max-lg:hidden basis-1/2">
           <motion.ul
             whileInView="visible"
@@ -105,45 +162,59 @@ function NavBar() {
                 custom={index}
                 variants={variants}
                 key={index}
-                className="inline-block px-4 py-2 font-semibold hover:text-green-500 duration-500 text-body"
+                className="inline-block px-4 py-2"
               >
-                <Link href={item.link}>{item.name}</Link>
+                <Link
+                  href={item.link}
+                  className={`font-semibold duration-500 text-body ${
+                    isLinkActive(item)
+                      ? "text-green-500 font-bold"
+                      : "hover:text-green-500"
+                  }`}
+                >
+                  {item.name}
+                </Link>
               </motion.li>
             ))}
           </motion.ul>
         </div>
-        {/* right (mobile) */}
+
+        {/* Mobile Menu Button */}
         <div className="hidden max-md:flex max-lg:flex basis-1/2 justify-end w-full items-center px-2">
-          {/* menu icon */}
           {!toggleMenu ? (
             <IconMenuDeep
               size={30}
-              onClick={() => setToggleMenu(!toggleMenu)}
+              onClick={() => setToggleMenu(true)}
               className="cursor-pointer"
             />
           ) : (
             <IconX
               size={30}
-              onClick={() => setToggleMenu(!toggleMenu)}
+              onClick={() => setToggleMenu(false)}
               className="cursor-pointer"
             />
           )}
         </div>
       </div>
-      {/* moblie menu */}
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {toggleMenu && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }} // Start with 0 height and opacity
-            animate={{ opacity: 1, height: "auto" }} // Animate to full height and opacity
-            exit={{ opacity: 0, height: 0 }} // Animate back to 0 height and opacity
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
             className="flex flex-col justify-center w-full items-center mt-4 overflow-hidden"
           >
             {NavBarLinks.map((item, index) => (
               <Link
                 href={item.link}
                 key={index}
-                className="text-body font-semibold py-2 hover:text-green-500 duration-500"
+                className={`py-2 font-semibold duration-500 ${
+                  isLinkActive(item)
+                    ? "text-green-500 font-semibold"
+                    : "text-body hover:text-green-500"
+                }`}
                 onClick={() => setToggleMenu(false)}
               >
                 {item.name}
