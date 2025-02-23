@@ -16,39 +16,37 @@ function ServicesSection() {
   }
   const Services: IService[] = [
     {
-      icon: <IconBadgeTm size={100} stroke={1} className="text-green-500" />,
+      icon: <IconBadgeTm stroke={1} className="text-green-500 h-20 w-20" />,
       name: "Branding",
       description:
         "We help businesses establish a unique identity with compelling visual and strategic branding solutions that resonate with their audience, ensuring consistency across all marketing channels and touchpoints.",
     },
     {
-      icon: <IconBadgeTm size={100} stroke={1} className="text-green-500" />,
+      icon: <IconBadgeTm stroke={1} className="text-green-500 h-20 w-20" />,
       name: "Social Media Marketing",
       description:
         "Boost your online presence with our expert social media strategies, content creation, and targeted campaigns across various platforms, helping you build meaningful connections with your audience and drive engagement.",
     },
     {
-      icon: (
-        <IconBrandWechat size={100} stroke={1} className="text-green-500" />
-      ),
+      icon: <IconBrandWechat stroke={1} className="text-green-500 h-20 w-20" />,
       name: "Billboard Advertising",
       description:
         "Maximize your brand exposure with high-impact billboard advertisements in prime locations tailored to your target audience, ensuring your message reaches a wide demographic and leaves a lasting impression.",
     },
     {
-      icon: <IconVideo size={100} stroke={1} className="text-green-500" />,
+      icon: <IconVideo stroke={1} className="text-green-500 h-20 w-20" />,
       name: "Video Production",
       description:
         "Engage your audience with high-quality video content, including commercials, promotional videos, and corporate storytelling, crafted with professional cinematography and post-production techniques to make your brand stand out.",
     },
     {
-      icon: <IconSeo size={100} stroke={1} className="text-green-500" />,
+      icon: <IconSeo stroke={1} className="text-green-500 h-20 w-20" />,
       name: "SEO & Content Marketing",
       description:
         "Improve your search rankings and attract organic traffic with data-driven SEO strategies and compelling content marketing, designed to enhance your brand authority and drive long-term digital success.",
     },
     {
-      icon: <IconTicket size={100} stroke={1} className="text-green-500" />,
+      icon: <IconTicket stroke={1} className="text-green-500 h-20 w-20" />,
       name: "Event Promotions",
       description:
         "From product launches to corporate events, we create buzz and attract attendees with strategic event marketing solutions, ensuring your event gains the visibility and engagement it deserves for maximum impact.",
@@ -68,13 +66,17 @@ function ServicesSection() {
   };
 
   return (
-    <div id="services" className="scroll-m-32">
+    <div id="services" className="scroll-m-32 max-md:p-4">
       {/* headiing */}
       <div className="flex flex-col items-center justify-center">
-        <div className="text-heading font-bold self-start w-full text-center">
+        <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading relative">
           Services
+          {/* 3 bubbles */}
+          <div className="absolute top-2 left-[50rem] bg-red-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
+          <div className="absolute top-2 left-[40rem] bg-blue-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
+          <div className="absolute top-2 left-[30rem] bg-green-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
         </div>
-        <div className="self-start h-full text-subheading w-full text-center mb-8">
+        <div className="self-start h-full text-subheading w-full text-center mb-8 max-md:text-body">
           We offer a wide range of media services to help our clients
         </div>
         {/* services cards */}
@@ -82,7 +84,7 @@ function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-3 gap-4 w-full h-full aspect-video"
+          className="grid grid-cols-3 gap-4 w-full h-full aspect-video max-md:grid-cols-1 max-:grid-cols-2 max-lg:grid-cols-2"
         >
           {Services.map((service, index) => (
             <motion.div
@@ -94,11 +96,11 @@ function ServicesSection() {
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-0 duration-500 flex flex-col justify-center items-center">
                 <div>{service.icon}</div>
-                <div className="text-subheading text-nowrap">
+                <div className="text-subheading text-nowrap max-md:text-body">
                   {service.name}
                 </div>
               </div>
-              <div className="text-body h-full  w-full  opacity-0 group-hover:opacity-100 duration-500 bg-gradient-to-tr from-green-400 to-green-500 flex justify-center items-center p-8 text-white">
+              <div className="text-body h-full  w-full rounded-md opacity-0 group-hover:opacity-100 duration-500 bg-gradient-to-tr from-green-400 to-green-500 flex justify-center items-center p-8 text-white max-md:text-caption">
                 {service.description}
               </div>
             </motion.div>

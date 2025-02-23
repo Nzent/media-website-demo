@@ -23,12 +23,12 @@ function RightSection() {
     },
   ];
   return (
-    <div className="flex flex-col gap-y-4 justify-start items-end basis-1/3">
-      <div className="text-body font-semibold">Contact Info</div>
-      <ul className="flex flex-col items-start gap-y-4 text-body">
+    <div className="flex flex-col gap-y-4 justify-start items-end basis-1/3 max-md:basis-0 max-md:items-start">
+      <div className="text-body font-semibold max-md:text-start">Contact Info</div>
+      <ul className="flex flex-col items-start gap-y-4 text-body max-lg:text-caption">
         {ContactInfo.map((contact, index) => (
           <li key={index} className="flex gap-x-2 items-center ">
-            <Link href={contact.link} className="flex gap-x-4">
+            <Link href={contact.link} className="flex gap-x-4 max-md:text-caption">
               {contact.icon} {contact.link}
             </Link>
           </li>

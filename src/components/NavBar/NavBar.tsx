@@ -49,11 +49,31 @@ function NavBar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [toggleMenu]); // Re-run effect when `toggleMenu` changes
-  // Re-run effect when `toggleMenu` changes
+  }, [toggleMenu]);
+  // scroll position cal
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-white/80  backdrop-blur-3xl py-4 h-fit fixed top-0 inset-0 z-50 ">
+    <nav
+      className={`${
+        isScrolled ? "bg-white/80 shadow-md" : "bg-transparent "
+      }   backdrop-blur-3xl py-4 h-fit fixed top-0 inset-0 z-50 transition-all duration-500`}
+    >
       <div className="flex justify-between  w-full container mx-auto">
         {/* left */}
         <motion.div

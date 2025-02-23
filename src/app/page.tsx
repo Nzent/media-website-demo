@@ -7,7 +7,7 @@ import ServicesSection from "@/components/Home/Sections/ServicesSection";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-y-20">
+    <main className="flex flex-col gap-y-20 overflow-hidden">
       <section>
         <IntroSection />
       </section>
@@ -23,13 +23,13 @@ export default function Home() {
       <section className="container mx-auto">
         <FeedbackSction />
       </section>
-      <section className="container mx-auto">
+     <section className="container mx-auto">
         <PortfolioSection />
       </section>
 
-      <section className="container mx-auto">
+     {/*   <section className="container mx-auto">
         <div className="h-20"></div>
-      </section>
+      </section> */}
     </main>
   );
 }

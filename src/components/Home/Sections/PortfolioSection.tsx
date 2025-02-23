@@ -89,11 +89,18 @@ function PortfolioSection() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center scroll-m-32" id="portfolio">
-      <div className="text-heading font-bold self-start w-full text-center">
+    <div
+      className="flex flex-col items-center justify-center scroll-m-32 max-md:p-4"
+      id="portfolio"
+    >
+      <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading  relative">
         Portfolios
+        {/* 3 bubbles */}
+        <div className="absolute top-2 left-[50rem] bg-blue-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
+        <div className="absolute top-2 left-[40rem] bg-green-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
+        <div className="absolute top-2 left-[30rem] bg-teal-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
       </div>
-      <div className="self-start h-full text-subheading w-full text-center mb-8">
+      <div className="self-start h-full text-subheading w-full text-center mb-8 max-md:text-body">
         What We Have Done
       </div>
 
@@ -101,7 +108,7 @@ function PortfolioSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-3 gap-4"
+        className="grid grid-cols-3 gap-4 max-md:grid-cols-1 max-lg:grid-cols-2"
       >
         {PortfolioProjects.map((portfolio, index) => (
           <motion.div
@@ -120,7 +127,7 @@ function PortfolioSection() {
               className="grayscale hover:grayscale-0 rounded-md"
             />
             {/* stats section */}
-            <div className="absolute bottom-0 overflow-hidden p-4 h-1/4 rounded-md bg-green-500 w-full group-hover:h-full duration-500 text-body text-white">
+            <div className="absolute bottom-0 overflow-hidden p-4 h-12 rounded-md bg-green-500 w-full group-hover:h-full duration-500 text-body text-white max-md:text-caption">
               <div className="grid grid-cols-2">
                 <div className="flex gap-x-2 justify-start">
                   <span className="font-semibold">Name : </span>
@@ -139,7 +146,7 @@ function PortfolioSection() {
                   <span>{portfolio.date}</span>
                 </div>
               </div>
-            <div className="mt-">
+              <div className="mt-">
                 <div className="font-semibold">Discription : </div>
                 <p>{portfolio.description}</p>
               </div>

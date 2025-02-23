@@ -22,3 +22,15 @@
   padding-left: var(--slide-spacing);
   margin-right: 1rem;
 }
+
+@media (max-width: 768px) {
+  .embla {
+    --slide-size: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .embla {
+    --slide-size: 50%;
+  }
+}

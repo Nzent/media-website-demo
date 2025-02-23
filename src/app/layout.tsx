@@ -25,8 +25,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} antialiased bg-slate-100`}>
         <NavBar />
-        {/* <Provider>{children}</Provider> */}
-        {/* <Footer /> */}
+        <Provider>{children}</Provider>
+        <Footer />
       </body>
     </html>
   );

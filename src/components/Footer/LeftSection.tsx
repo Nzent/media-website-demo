@@ -32,7 +32,7 @@ function LeftSection() {
           className="-ml-6"
         />
       </div>
-      <p className="text-body">
+      <p className="text-body max-md:text-caption max-lg:text-caption">
         Transforming Ideas into Digital Excellence. Elevate your online presence
         with our innovative solutions and strategic digital services.
       </p>

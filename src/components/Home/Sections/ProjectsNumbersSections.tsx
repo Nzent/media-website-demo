@@ -23,20 +23,34 @@ function ProjectsNumbersSections() {
   ];
 
   return (
-    <div className="flex gap-x-8 bg-white py-8 px-8 w-full justify-around">
+    <div className="grid grid-cols-4 max-md:grid-cols-1 max-lg:grid-cols-2 max-md:gap-y-4 gap-x-8 bg-white py-8 px-8 w-full ">
       {Numbers.map((item, index) => (
         <div
           key={index}
           className="flex flex-col items-center justify-center container mx-auto"
         >
-          <span className="text-heading font-semibold">
+          <span className="text-heading font-semibold max-md:text-subheading max-md:text-center">
             {item.title === "Ratings" ? (
-              <CountUp start={0} end={item.number} decimals={2} enableScrollSpy scrollSpyOnce scrollSpyDelay={1000}/>
+              <CountUp
+                start={0}
+                end={item.number}
+                decimals={2}
+                enableScrollSpy
+                scrollSpyOnce
+                scrollSpyDelay={1000}
+              />
             ) : (
-              <CountUp start={0} end={item.number} enableScrollSpy scrollSpyOnce scrollSpyDelay={1000}/>
-            )}+
+              <CountUp
+                start={0}
+                end={item.number}
+                enableScrollSpy
+                scrollSpyOnce
+                scrollSpyDelay={1000}
+              />
+            )}
+            +
           </span>
-          <span className="text-body font-semibold ">{item.title}</span>
+          <span className="text-body ">{item.title}</span>
         </div>
       ))}
     </div>

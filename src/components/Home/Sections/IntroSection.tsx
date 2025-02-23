@@ -18,7 +18,7 @@ function IntroSection() {
         <div className="absolute bottom-0 h-full w-full bg bg-gradient-to-t from-slate-100 via-transparent to-transparent"></div>
       </div>
       {/* top title */}
-      <div className="absolute top-40 flex flex-col w-full justify-center items-center">
+      <div className="absolute top-40 flex flex-col w-full justify-center items-center max-md:p-4 max-md:text-center">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 50 }}
@@ -37,7 +37,7 @@ function IntroSection() {
           initial={{ opacity: 0, y: 50 }}
           transition={{ delay: 0.5, duration: 1 }}
           viewport={{ once: true }}
-          className="text-subheading"
+          className="text-subheading max-md:text-body font-semibold"
         >
           Professional Media and Advertisement agency
         </motion.div>

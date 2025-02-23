@@ -80,13 +80,17 @@ function FeedbackSction() {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <div className="scroll-m-32" id="feedbacks">
+    <div className="scroll-m-32 max-md:p-4" id="feedbacks">
       {/* headiing */}
       <div className="flex flex-col items-center justify-center">
-        <div className="text-heading font-bold self-start w-full text-center">
+        <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading relative">
           Feedbacks
+          {/* 3 bubbles */}
+          <div className="absolute top-2 left-[50rem] bg-blue-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
+          <div className="absolute top-2 left-[40rem] bg-green-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
+          <div className="absolute top-2 left-[30rem] bg-red-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
         </div>
-        <div className="self-start h-full text-subheading w-full text-center mb-8">
+        <div className="self-start h-full text-subheading w-full text-center mb-8 max-md:text-body">
           What clients say about us
         </div>
         {/* feedbacks cards */}
@@ -109,7 +113,7 @@ function FeedbackSction() {
                     />
                   </div>
                   {/* feedback */}
-                  <div className="italic opacity-60 text-body ">
+                  <div className="italic opacity-60 text-body max-md:text-caption">
                     &quot; {feedback.feedback} &quot;
                   </div>
                   <div className="text-center text-body font-semibold">
