@@ -2,8 +2,9 @@
 import { IconArrowDownDashed } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 function IntroSection() {
+  const router = useRouter();
   return (
     <div className="relative">
       {/* top cover image */}
@@ -13,7 +14,7 @@ function IntroSection() {
           width={1920}
           height={1080}
           alt={"Intro saection image"}
-          className="w-full h-screen object-cover object-top "
+          className="w-full h-screen object-cover object-top opacity-60"
         />
         <div className="absolute bottom-0 h-full w-full bg bg-gradient-to-t from-slate-100 via-transparent to-transparent"></div>
       </div>
@@ -37,9 +38,23 @@ function IntroSection() {
           initial={{ opacity: 0, y: 50 }}
           transition={{ delay: 0.5, duration: 1 }}
           viewport={{ once: true }}
-          className="text-subheading max-md:text-body font-semibold"
+          className="text-subheading max-md:text-body font-semibold my-2"
         >
           Professional Media and Advertisement agency
+        </motion.div>
+        {/* cta abutton */}
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <button
+            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 text-body font-semibold mt-2 rounded-md uppercase hover:opacity-80"
+            onClick={() => router.push("/#services")}
+          >
+            Explore more
+          </button>
         </motion.div>
       </div>
       {/* scroll indicator */}
