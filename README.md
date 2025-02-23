@@ -2,13 +2,12 @@
 
 # Excellence Media Company Demo
 
-This is a **Next.js 15** project built with modern web technologies, including **Tailwind CSS**, **Zod** for form validations, and **Framer Motion** for animations. The website features a **clean and minimal design**, **dark mode support**, and is fully responsive across **mobile, laptop, and PC**.
+This is a **Next.js 15** project built with modern web technologies, including **Tailwind CSS**, **Zod** for form validations, and **Framer Motion** for animations. The website features a **clean and minimal design**, and is fully responsive across **mobile, laptop, and PC**.
 
 ## Features
 
 - 🚀 Built with **Next.js 15** for optimal performance
 - 🎨 Styled with **Tailwind CSS** for a clean and minimal design
-- 🌗 **Dark Mode** support
 - 📱 **Fully Responsive** across all devices (mobile, laptop, PC)
 - ✅ Form validations implemented using **Zod**
 - 🎬 Smooth animations powered by **Framer Motion**

@@ -67,7 +67,6 @@ function NavBar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
     <nav
       className={`${
