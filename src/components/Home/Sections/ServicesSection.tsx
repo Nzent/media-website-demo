@@ -66,7 +66,7 @@ function ServicesSection() {
   };
 
   return (
-    <div id="services" className="scroll-m-32 max-md:p-4">
+    <div className="scroll-m-32 max-md:p-4">
       {/* headiing */}
       <div className="flex flex-col items-center justify-center">
         <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading relative">

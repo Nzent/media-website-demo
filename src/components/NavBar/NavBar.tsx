@@ -15,11 +15,11 @@ function NavBar() {
 
   const NavBarLinks = React.useMemo<Array<INavItem>>(
     () => [
-      { name: "Home", link: "/#intro", sectionId: "home" },
+      { name: "Home", link: "/#intro", sectionId: "intro" },
       { name: "About us", link: "/#about-us", sectionId: "about-us" },
       { name: "Services", link: "/#services", sectionId: "services" },
       { name: "Feedbacks", link: "/#feedbacks", sectionId: "feedbacks" },
-      { name: "Portfolio", link: "/#portfolio", sectionId: "portfolio" },
+      { name: "Portfolio", link: "/#portfolios", sectionId: "portfolios" },
       { name: "Contact", link: "/contact-us", sectionId: "contact" },
     ],
     []
