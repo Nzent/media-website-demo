@@ -7,29 +7,25 @@ import ServicesSection from "@/components/Home/Sections/ServicesSection";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-y-20 overflow-hidden">
-      <section className="scroll-mt-32" id="intro">
+    <main className="flex flex-col overflow-x-hidden">
+      <section className="py-10 w-full" id="intro">
         <IntroSection />
       </section>
-      <section className="scroll-m-32 container mx-auto" id="about-us">
+      <section className="py-10 w-full container mx-auto" id="about-us">
         <AboutUsSection />
       </section>
-      <section className="scroll-m-32 container mx-auto" id="services">
+      <section className="py-10 w-full container mx-auto" id="services">
         <ServicesSection />
       </section>
-      <section className="scroll-m-32 mx-auto w-full" id="projects">
+      <section className="py-10 w-full mx-auto" id="projects">
         <ProjectsNumbersSections />
       </section>
-      <section className="scroll-m-32 container mx-auto" id="feedbacks">
+      <section className="py-10 w-full container mx-auto" id="feedbacks">
         <FeedbackSction />
       </section>
-      <section className="scroll-m-32 container mx-auto" id="portfolios">
+      <section className="py-10 w-full container mx-auto" id="portfolios">
         <PortfolioSection />
       </section>
-
-      {/*   <section className="container mx-auto">
-        <div className="h-20"></div>
-      </section> */}
     </main>
   );
 }
