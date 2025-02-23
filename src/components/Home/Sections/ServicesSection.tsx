@@ -110,7 +110,7 @@ function PortfolioSection() {
             {/* Description section */}
             <div className="absolute inset-0 p-4 bg-green-500 translate-y-[calc(100%-3rem)] group-hover:translate-y-0 transition-transform duration-500 text-white">
               <div className="h-full overflow-y-auto">
-                <div className="font-semibold text-lg mb-2">Description</div>
+                <div className="font-semibold text-body mb-2">Description</div>
                 <p className="text-body max-md:text-caption">
                   {service.description}
                 </p>
