@@ -28,24 +28,24 @@ function RightSection() {
     },
   ];
   return (
-    <div className="flex flex-col gap-y-4 justify-start items-end basis-1/3 max-md:basis-0 max-md:items-start">
-      {/* top title */}
-      <div className="text-body font-semibold max-md:text-start">
-        Contact Info
+    <div className="flex flex-col gap-y-4  basis-1/3 max-md:basis-0 max-md:items-start">
+      <div className="flex flex-col justify-start items-start gap-y-4">
+        {/* top title */}
+        <div className="text-body font-semibold ">Contact Info</div>
+        {/* contact info links */}
+        <ul className="flex flex-col gap-y-4 text-body max-lg:text-caption">
+          {ContactInfo.map((contact, index) => (
+            <li key={index} className="flex gap-x-2 items-center ">
+              <Link
+                href={contact.link}
+                className="flex gap-x-4 max-md:text-caption"
+              >
+                {contact.icon} {contact.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-      {/* contact info links */}
-      <ul className="flex flex-col items-start gap-y-4 text-body max-lg:text-caption">
-        {ContactInfo.map((contact, index) => (
-          <li key={index} className="flex gap-x-2 items-center ">
-            <Link
-              href={contact.link}
-              className="flex gap-x-4 max-md:text-caption"
-            >
-              {contact.icon} {contact.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

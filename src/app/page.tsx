@@ -14,30 +14,30 @@ export default function Home() {
       </section>
 
       {/* about section */}
-      <section className="w-full mb-10 container mx-auto" id="about-us">
+      <section className="w-full mb-20 container mx-auto" id="about-us">
         <AboutUsSection />
       </section>
 
       {/* services card secrion */}
       <section
-        className=" max-md:h-full mb-10 w-full container mx-auto"
+        className=" max-md:h-full mb-20 w-full container mx-auto"
         id="services"
       >
         <ServicesSection />
       </section>
 
       {/* agency's stats numbers indicators section */}
-      <section className="mb-10  w-full mx-auto" id="projects">
+      <section className="mb-20  w-full mx-auto" id="projects">
         <ProjectsNumbersSections />
       </section>
 
       {/* testimonials feedbacks section */}
-      <section className="mb-0 w-full container mx-auto" id="feedbacks">
+      <section className="mb-10 w-full container mx-auto" id="feedbacks">
         <FeedbackSction />
       </section>
 
       {/* agency portfolios section */}
-      <section className=" w-full container mx-auto" id="portfolios">
+      <section className=" w-full mb-20 container mx-auto" id="portfolios">
         <PortfolioSection />
       </section>
     </main>

@@ -23,7 +23,7 @@ function LeftSection() {
     { icon: <IconBrandDribbble />, link: "/" },
   ];
   return (
-    <div className="flex flex-col gap-y-4 justify-start items-start basis-1/3">
+    <div className="flex flex-col gap-y-6 justify-start items-start basis-1/3">
       {/* top company logo */}
       <div>
         <Image
@@ -31,7 +31,7 @@ function LeftSection() {
           width={400}
           height={100}
           alt="company logo"
-          className="-ml-6"
+          className="-ml-6 -mb-2"
         />
       </div>
       {/* subtitle */}
