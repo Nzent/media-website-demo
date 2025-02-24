@@ -4,7 +4,9 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 function IntroSection() {
+  // use router to handle onclick event
   const router = useRouter();
+
   return (
     <div className="relative">
       {/* top cover image */}
@@ -20,6 +22,7 @@ function IntroSection() {
       </div>
       {/* top title */}
       <div className="absolute top-40 flex flex-col w-full justify-center items-center max-md:p-4 max-md:text-center">
+        {/* company logo */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 50 }}
@@ -33,6 +36,7 @@ function IntroSection() {
             alt="company logo"
           />
         </motion.div>
+        {/* company intro text */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 50 }}
@@ -42,7 +46,8 @@ function IntroSection() {
         >
           Professional Media and Advertisement agency
         </motion.div>
-        {/* cta abutton */}
+
+        {/* cta button */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 50 }}
@@ -57,7 +62,7 @@ function IntroSection() {
           </button>
         </motion.div>
       </div>
-      {/* scroll indicator */}
+      {/* bottom scroll indicator */}
       <div className="absolute flex flex-col w-full justify-center items-center bottom-10">
         <div className="flex flex-col items-center text-subheading">
           <span className="text-slate-900 text-body font-semibold text-nowrap">

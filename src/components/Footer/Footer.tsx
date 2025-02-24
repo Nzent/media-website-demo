@@ -7,11 +7,11 @@ function Footer() {
   return (
     <footer className="bg-white shadow-md py-20 max-md:px-4 mt-4">
       <div className="flex justify-between container mx-auto gap-4 max-md:flex-col max-md:items-start max-md:gap-y-4">
-        {/* left */}
+        {/* left section*/}
         <LeftSection />
-        {/* center */}
+        {/* center section*/}
         <CenterSection />
-        {/* right */}
+        {/* right section*/}
         <RightSection />
       </div>
     </footer>

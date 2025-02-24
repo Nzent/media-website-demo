@@ -15,6 +15,7 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 function Page() {
+  // validate form with useform
   const {
     register,
     handleSubmit,
@@ -23,12 +24,14 @@ function Page() {
     resolver: zodResolver(contactFormSchema),
   });
 
+  // handle form submision with useform
   const onSubmit: SubmitHandler<ContactFormData> = (data) => {
     alert(data);
   };
 
   return (
     <section className="container mx-auto h-full py-10 mt-20 max-md:p-4 overflow-hidden">
+      {/* top title section */}
       <div className=" text-center w-full flex flex-col my-10 relative">
         <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading">
           Contact us
@@ -36,15 +39,16 @@ function Page() {
         <div className="text-center text-subheading">
           Start the conversation to established good relationship and business.
         </div>
-        {/* 3 bubbles */}
+        {/* 3 background bubbles */}
         <div className="absolute top-2 left-[50rem] bg-red-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
         <div className="absolute top-2 left-[40rem] bg-blue-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
         <div className="absolute top-2 left-[30rem] bg-green-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
       </div>
 
+      {/* form grid section */}
       <div className="flex flex-col w-full justify-center items-center h-full">
         <div className="flex justify-between items-center gap-x-4 h-full w-full max-w-6xl max-md:flex-col max-md:gap-y-4 max-md:justify-normal">
-          {/* left */}
+          {/* left (image)*/}
           <div className="basis-1/2 max-md:basis-0">
             <Image
               src={"/images/contact.jpg"}
@@ -54,7 +58,7 @@ function Page() {
               className="object-cover rounded-md shadow-lg max-md:h-52"
             />
           </div>
-          {/* right */}
+          {/* right (form)*/}
           <div className="basis-full max-md:basis-0 bg-white p-4 rounded-md w-full">
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -80,6 +84,7 @@ function Page() {
                   </span>
                 )}
               </div>
+
               {/* email */}
               <div>
                 <label
@@ -103,6 +108,7 @@ function Page() {
                   </span>
                 )}
               </div>
+
               {/* subject */}
               <div>
                 <label
@@ -126,6 +132,7 @@ function Page() {
                   </span>
                 )}
               </div>
+
               {/* message */}
               <div>
                 <label
@@ -148,6 +155,7 @@ function Page() {
                   </span>
                 )}
               </div>
+
               {/* submit */}
               <div className="flex justify-end">
                 <button
@@ -157,6 +165,7 @@ function Page() {
                   Let&apos;s discuss
                 </button>
               </div>
+              
             </form>
           </div>
         </div>

@@ -12,7 +12,7 @@ function PortfolioSection() {
     location: string;
     description: string;
   }
-
+  // portfolios sample data
   const PortfolioProjects: IPortfolioProject[] = [
     {
       id: 1,
@@ -76,6 +76,7 @@ function PortfolioSection() {
     },
   ];
 
+  // motion animation variants
   const variants = {
     hidden: () => ({
       opacity: 0,
@@ -90,6 +91,7 @@ function PortfolioSection() {
 
   return (
     <div className="flex flex-col items-center justify-center scroll-m-32 max-md:px-4">
+      {/* title section */}
       <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading  relative">
         Portfolios
         {/* 3 bubbles */}
@@ -101,6 +103,7 @@ function PortfolioSection() {
         What We Have Done
       </div>
 
+      {/* portfolios section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -126,23 +129,28 @@ function PortfolioSection() {
             {/* stats section */}
             <div className="absolute bottom-0 overflow-hidden p-4 h-12 rounded-md bg-green-500 w-full group-hover:h-full duration-500 text-body text-white max-md:text-caption">
               <div className="grid grid-cols-2">
+                {/* name */}
                 <div className="flex gap-x-2 justify-start">
                   <span className="font-semibold">Name : </span>
                   <span>{portfolio.name}</span>
                 </div>
+                {/* location */}
                 <div className="flex gap-x-2 justify-start">
                   <span className="font-semibold">Location : </span>
                   <span>{portfolio.location}</span>
                 </div>
+                {/* client */}
                 <div className="flex gap-x-2 justify-start">
                   <span className="font-semibold">Client : </span>
                   <span>{portfolio.client}</span>
                 </div>
+                {/* date */}
                 <div className="flex gap-x-2 justify-start">
                   <span className="font-semibold">Date : </span>
                   <span>{portfolio.date}</span>
                 </div>
               </div>
+              {/* description */}
               <div className="mt-">
                 <div className="font-semibold">Discription : </div>
                 <p>{portfolio.description}</p>

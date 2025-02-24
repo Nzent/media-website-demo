@@ -3,7 +3,12 @@ import React from "react";
 import CountUp from "react-countup";
 
 function ProjectsNumbersSections() {
-  const Numbers = [
+  interface INumber {
+    title: string;
+    number: number;
+  }
+  // numbers sample data
+  const Numbers: INumber[] = [
     {
       title: "Projects done",
       number: 100,
@@ -23,6 +28,7 @@ function ProjectsNumbersSections() {
   ];
 
   return (
+    // number stats
     <div className="grid grid-cols-4 max-md:grid-cols-1  bg-white py-8 px-8 w-full ">
       {Numbers.map((item, index) => (
         <div
@@ -31,7 +37,7 @@ function ProjectsNumbersSections() {
         >
           <span className="text-heading font-semibold max-md:text-subheading max-md:text-center">
             {item.title === "Ratings" ? (
-              <CountUp
+              <CountUp //if numbers are in int
                 start={0}
                 end={item.number}
                 decimals={2}
@@ -40,7 +46,7 @@ function ProjectsNumbersSections() {
                 scrollSpyDelay={1000}
               />
             ) : (
-              <CountUp
+              <CountUp //if numbers are in deciaml
                 start={0}
                 end={item.number}
                 enableScrollSpy
@@ -50,6 +56,7 @@ function ProjectsNumbersSections() {
             )}
             +
           </span>
+          {/* stats title */}
           <span className="text-body ">{item.title}</span>
         </div>
       ))}

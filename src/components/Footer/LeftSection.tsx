@@ -14,6 +14,7 @@ function LeftSection() {
     icon: JSX.Element;
     link: string;
   }
+  // social medial links
   const SocialMedia: ISocialMedia[] = [
     { icon: <IconBrandFacebook />, link: "/" },
     { icon: <IconBrandInstagram />, link: "/" },
@@ -23,6 +24,7 @@ function LeftSection() {
   ];
   return (
     <div className="flex flex-col gap-y-4 justify-start items-start basis-1/3">
+      {/* top company logo */}
       <div>
         <Image
           src="/svgs/ExcellenceW.svg"
@@ -32,10 +34,12 @@ function LeftSection() {
           className="-ml-6"
         />
       </div>
+      {/* subtitle */}
       <p className="text-body max-md:text-caption max-lg:text-caption">
         Transforming Ideas into Digital Excellence. Elevate your online presence
         with our innovative solutions and strategic digital services.
       </p>
+      {/* company social links */}
       <div className="flex gap-x-4">
         {SocialMedia.map((item, index) => (
           <Link

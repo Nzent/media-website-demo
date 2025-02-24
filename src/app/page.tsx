@@ -8,14 +8,17 @@ import ServicesSection from "@/components/Home/Sections/ServicesSection";
 export default function Home() {
   return (
     <main className="flex flex-col overflow-hidden">
+      {/* intro section */}
       <section className="w-full mb-10" id="intro">
         <IntroSection />
       </section>
 
+      {/* about section */}
       <section className="w-full mb-10 container mx-auto" id="about-us">
         <AboutUsSection />
       </section>
 
+      {/* services card secrion */}
       <section
         className=" max-md:h-full mb-10 w-full container mx-auto"
         id="services"
@@ -23,14 +26,17 @@ export default function Home() {
         <ServicesSection />
       </section>
 
+      {/* agency's stats numbers indicators section */}
       <section className="mb-10  w-full mx-auto" id="projects">
         <ProjectsNumbersSections />
       </section>
 
+      {/* testimonials feedbacks section */}
       <section className="mb-0 w-full container mx-auto" id="feedbacks">
         <FeedbackSction />
       </section>
 
+      {/* agency portfolios section */}
       <section className=" w-full container mx-auto" id="portfolios">
         <PortfolioSection />
       </section>

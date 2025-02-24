@@ -17,7 +17,7 @@ function PortfolioSection() {
     icon: JSX.Element;
     description: string;
   }
-
+  // services sample data
   const Services: IPortfolioProject[] = [
     {
       id: 1,
@@ -63,6 +63,7 @@ function PortfolioSection() {
     },
   ];
 
+  // motion animation variant
   const variants = {
     hidden: () => ({
       opacity: 0,
@@ -77,9 +78,10 @@ function PortfolioSection() {
 
   return (
     <div className="flex flex-col items-center justify-center scroll-m-32 max-md:px-4">
+      {/* top title section */}
       <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading relative">
         Services
-        {/* 3 bubbles */}
+        {/* 3 bubbles backgound */}
         <div className="absolute top-2 left-[50rem] bg-blue-500 blur-3xl rounded-full h-52 w-52 opacity-20 -z-10"></div>
         <div className="absolute top-2 left-[40rem] bg-green-500 blur-3xl rounded-full h-52 w-52 opacity-20 -z-10"></div>
         <div className="absolute top-2 left-[30rem] bg-teal-500 blur-3xl rounded-full h-52 w-52 opacity-20 -z-10"></div>
@@ -87,7 +89,7 @@ function PortfolioSection() {
       <div className="self-start h-full text-subheading w-full text-center mb-8 max-md:text-body">
         What We offer
       </div>
-
+      {/* services cards section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -102,12 +104,12 @@ function PortfolioSection() {
             className="bg-white rounded-md relative group aspect-video overflow-hidden cursor-pointer"
             key={index}
           >
-            {/* Icon and name container */}
+            {/* services icon and title section */}
             <div className="flex flex-col items-center justify-center group-hover:justify-start h-full w-full p-4 duration-500 transition-all">
               <div className="">{service.icon}</div>
               <div className="text-body font-semibold">{service.title}</div>
             </div>
-            {/* Description section */}
+            {/* service description section */}
             <div className="absolute inset-0 p-4 bg-green-500 translate-y-[calc(100%-3rem)] group-hover:translate-y-0 transition-transform duration-500 text-white">
               <div className="h-full overflow-y-auto">
                 <div className="font-semibold text-body mb-2">Description</div>

@@ -7,7 +7,7 @@ function AboutUsSection() {
       className="flex justify-center items-center gap-x-4 scroll-m-32 
       max-md:flex-col max-md:gap-y-4 max-lg:flex-col max-lg:gap-y-4 max-md:p-4 max-md:text-center"
     >
-      {/* left */}
+      {/* left video intro section*/}
       <motion.div
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
@@ -23,7 +23,7 @@ function AboutUsSection() {
           className="w-full h-full rounded-md shadow-lg"
         />
       </motion.div>
-      {/* right */}
+      {/* right about us article section*/}
       <div className="basis-1/2 flex flex-col ">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}

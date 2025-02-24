@@ -13,21 +13,20 @@ function NavBar() {
     sectionId: string;
   }
 
-  const NavBarLinks = React.useMemo<Array<INavItem>>(
-    () => [
-      { name: "Home", link: "/#intro", sectionId: "intro" },
-      { name: "About us", link: "/#about-us", sectionId: "about-us" },
-      { name: "Services", link: "/#services", sectionId: "services" },
-      { name: "Feedbacks", link: "/#feedbacks", sectionId: "feedbacks" },
-      { name: "Portfolio", link: "/#portfolios", sectionId: "portfolios" },
-      { name: "Contact", link: "/contact-us", sectionId: "contact" },
-    ],
-    []
-  );
+  // navlinks sampale data
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const NavBarLinks: INavItem[] = [
+    { name: "Home", link: "/#intro", sectionId: "intro" },
+    { name: "About us", link: "/#about-us", sectionId: "about-us" },
+    { name: "Services", link: "/#services", sectionId: "services" },
+    { name: "Feedbacks", link: "/#feedbacks", sectionId: "feedbacks" },
+    { name: "Portfolio", link: "/#portfolios", sectionId: "portfolios" },
+    { name: "Contact", link: "/contact-us", sectionId: "contact" },
+  ];
 
-  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false); // toggle mobile nabvar
+  const [isScrolled, setIsScrolled] = useState<boolean>(false); // state of scroll position of the navbar
+  const [activeSection, setActiveSection] = useState<string>(""); // intersection observer current active section state
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -42,7 +41,7 @@ function NavBar() {
       threshold: 0.6,
       rootMargin: "-80px 0px 0px 0px",
     };
-
+    // intersection oberver to detect current section
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -130,7 +129,7 @@ function NavBar() {
       } backdrop-blur-3xl py-4 h-fit fixed top-0 inset-0 z-50 transition-all duration-500`}
     >
       <div className="flex justify-between w-full container mx-auto">
-        {/* Logo */}
+        {/* left company logo */}
         <motion.div
           ref={menuRef}
           whileInView={{ opacity: 1 }}
@@ -149,7 +148,7 @@ function NavBar() {
           </Link>
         </motion.div>
 
-        {/* Desktop Navigation */}
+        {/* right desktop view */}
         <div className="items-center flex justify-end max-md:hidden max-lg:hidden basis-1/2">
           <motion.ul
             whileInView="visible"
@@ -179,7 +178,7 @@ function NavBar() {
           </motion.ul>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* right mobile menu button */}
         <div className="hidden max-md:flex max-lg:flex basis-1/2 justify-end w-full items-center px-2">
           {!toggleMenu ? (
             <IconMenuDeep
@@ -197,7 +196,7 @@ function NavBar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu with motion exit animation*/}
       <AnimatePresence>
         {toggleMenu && (
           <motion.div

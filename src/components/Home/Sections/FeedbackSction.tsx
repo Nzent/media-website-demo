@@ -18,6 +18,7 @@ function FeedbackSction() {
     feedback: string;
   }
 
+  // sample feedbacks
   const Feedbacks: IFeedBacks[] = [
     {
       id: 1,
@@ -69,23 +70,26 @@ function FeedbackSction() {
     },
   ];
 
+  // embla carousel auto play plugin and init
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ playOnInit: true, delay: 5000 }),
   ]);
 
+  // embla carousel arrow buttons handles
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
+
   return (
     <div className="scroll-m-32 max-md:p-4">
-      {/* headiing */}
       <div className="flex flex-col items-center justify-center">
+        {/* headiing */}
         <div className="text-heading font-bold self-start w-full text-center max-md:text-subheading relative">
           Feedbacks
-          {/* 3 bubbles */}
+          {/* 3 bubbles background*/}
           <div className="absolute top-2 left-[50rem] bg-blue-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
           <div className="absolute top-2 left-[40rem] bg-green-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
           <div className="absolute top-2 left-[30rem] bg-red-500 blur-3xl rounded-full h-52 w-52  opacity-20 -z-10"></div>
@@ -116,6 +120,7 @@ function FeedbackSction() {
                   <div className="italic opacity-60 text-body max-md:text-caption">
                     &quot; {feedback.feedback} &quot;
                   </div>
+                  {/* name and company  */}
                   <div className="text-center text-body font-semibold">
                     <div className="text-green-500">{feedback.company}</div>
                     <div>{feedback.name}</div>
@@ -124,39 +129,33 @@ function FeedbackSction() {
               ))}
             </div>
           </div>
+          {/* arrow buttons */}
           <div className="mt-4">
-            <button type="button" title="prev button" onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
+            {/* prev button */}
+            <button
+              type="button"
+              title="prev button"
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
+            >
               <IconCircleChevronLeft
                 className={`${prevBtnDisabled && "opacity-50"} `}
                 size={30}
               />
             </button>
-            <button type="button" title="next button" onClick={onNextButtonClick} disabled={nextBtnDisabled}>
+            {/* next button */}
+            <button
+              type="button"
+              title="next button"
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+            >
               <IconCircleChevronRight
                 className={`${nextBtnDisabled && "opacity-50"} `}
                 size={30}
               />
             </button>
           </div>
-          {/* 
-          <div className="embla__controls">
-            <div className="embla__buttons">
-              <button onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-              <button onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-            </div>
-
-            <div className="embla__dots">
-              {scrollSnaps.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => onDotButtonClick(index)}
-                  className={"embla__dot".concat(
-                    index === selectedIndex ? " embla__dot--selected" : ""
-                  )}
-                />
-              ))}
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

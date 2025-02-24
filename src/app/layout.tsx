@@ -24,8 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} antialiased bg-slate-100`}>
+        {/* navbar */}
         <NavBar />
+        {/* elements */}
         <Provider>{children}</Provider>
+        {/* footer */}
         <Footer />
       </body>
     </html>
