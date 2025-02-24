@@ -61,7 +61,7 @@ function IntroSection() {
       <div className="absolute flex flex-col w-full justify-center items-center bottom-10">
         <div className="flex flex-col items-center text-subheading">
           <span className="text-slate-900 text-body font-semibold text-nowrap">
-            Explore more
+            Scroll down
           </span>
           <IconArrowDownDashed className="animate-bounce h-10 w-10 text-slate-900 drop-shadow-md " />
         </div>
